@@ -9,7 +9,6 @@ import (
 
 	"strings"
 
-	"github.com/golang/protobuf/protoc-gen-go/generator"
 	plugin "github.com/golang/protobuf/protoc-gen-go/plugin"
 	"github.com/grpc-ecosystem/grpc-gateway/codegenerator"
 	"github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/descriptor"
@@ -49,9 +48,7 @@ func main() {
 	// Extract the RPC call godoc from the proto.
 	godoc := make(map[string]string)
 	for _, f := range req.GetProtoFile() {
-		fd := &generator.FileDescriptor{
-			FileDescriptorProto: f,
-		}
+		fd := f
 		for _, loc := range fd.GetSourceCodeInfo().GetLocation() {
 			if loc.LeadingComments == nil {
 				continue
