@@ -21,7 +21,7 @@ import (
 	"context"
 	"net"
 
-	"github.com/golang/protobuf/proto"
+	"google.golang.org/protobuf/proto"
 	"google.golang.org/grpc"
 
 	"{{.TargetPkg}}"
@@ -66,7 +66,7 @@ type jsHeaderParams struct {
 type jsRpcParams struct {
 	// MethodName is the RPC method's name.
 	MethodName string
-	
+
 	// ServiceName is the original case gRPC service name as defined in the
 	// proto file.
 	ServiceName string
@@ -461,7 +461,7 @@ package {{.Package}}
 import (
 	"context"
 
-	"github.com/golang/protobuf/proto"
+	"google.golang.org/protobuf/proto"
 )
 
 // Callback is an interface that is passed in by callers of the library, and
